@@ -8,7 +8,6 @@
 import Foundation
 
 class MoviesListInteractor {
-//    let service: ServiceProtocol
     var currentPage: Int = Constants.startPage
     var lastPage: Int = Constants.endPage
 

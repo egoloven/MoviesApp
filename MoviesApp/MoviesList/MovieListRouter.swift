@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 class MovieListRouter {
-    ///Make MovieDetailView
 
     func makeMovieDetailView(from movie: ViewMovie) -> some View {
         return MovieDetailView(

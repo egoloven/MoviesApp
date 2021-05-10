@@ -18,7 +18,6 @@ enum LoadingStatus {
 
 class RemoteImageLoader {
     public static let cache = RemoteImageLoader()
-//    @Published var status: LoadingStatus = .loading
     private let cachedImages = NSCache<NSURL, UIImage>()
     private var loadingResponses = [NSURL: [(UIImage?, LoadingStatus) -> Swift.Void]]()
 
@@ -27,7 +26,6 @@ class RemoteImageLoader {
     }
 
     final func image(url: NSURL) -> UIImage? {
-//        print("\(cachedImages.object(forKey: url))")
         return cachedImages.object(forKey: url)
     }
 
@@ -96,11 +94,10 @@ struct RemoteImage: View {
         case .loading:
             Rectangle()
                 .fill(Color.gray)
-//                .resizable()
+                .opacity(0.3)
         case .error:
             Text(Constants.noPoster)
                 .font(.title)
-//                .resizable()
         default:
             Image(uiImage: controller.image!)
                 .resizable()

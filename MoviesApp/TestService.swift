@@ -9,15 +9,20 @@ import Foundation
 
 protocol ServiceProtocol {
     func getMovies(_ page: Int, completion: @escaping (_ movies: [APIResult], _ lastPage: Int) -> Void)
+    func getSimilarMovies(for id: Int, completion: @escaping (_ movies: [APIResult]) -> Void)
 }
 
+///API Service
 class TestService: ServiceProtocol {
+
+
     public static let service = TestService()
 
     private let key = Constants.key
     private let nowPlayingUrl = Constants.nowPlayingUrl
     private let similarMoviesUrl = Constants.similarMoviesUrl
 
+    ///Get similar movies for film
     func getSimilarMovies(for id: Int, completion: @escaping (_ movies: [APIResult]) -> Void) {
         let url = URL(string: "\(similarMoviesUrl)\(id)/similar?api_key=\(key)")!
 
@@ -49,6 +54,7 @@ class TestService: ServiceProtocol {
         dataTask.resume()
     }
 
+    ///Get 20 movies from certain page in theaters  in Ukraine
     func getMovies(_ page: Int, completion: @escaping (_ movies: [APIResult], _ lastPage: Int) -> Void) {
         let url = URL(string: "\(nowPlayingUrl)region=UA&api_key=\(key)&page=\(page)")!
 

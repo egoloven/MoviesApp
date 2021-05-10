@@ -17,35 +17,35 @@ protocol ViewMovieBase {
 }
 
 class APISimilarResponse: Decodable {
-    var results:      [APIResult]?
+    var results: [APIResult]?
 
-    var page:         Int?
-    var totalPages:   Int?
     var totalResults: Int?
+    var totalPages: Int?
+    var page: Int?
 
     enum CodingKeys: String, CodingKey {
-        case page
         case results
-        case totalPages = "total_pages"
+        case page
         case totalResults = "total_results"
+        case totalPages = "total_pages"
     }
 }
 
 class APIResponse: Decodable {
-    var dates:        APIDates?
+    var dates: APIDates?
     
-    var results:      [APIResult]?
+    var results: [APIResult]?
 
-    var page:         Int?
-    var totalPages:   Int?
     var totalResults: Int?
+    var totalPages: Int?
+    var page: Int?
 
     enum CodingKeys: String, CodingKey {
+        case results
         case dates
         case page
-        case results
-        case totalPages = "total_pages"
         case totalResults = "total_results"
+        case totalPages = "total_pages"
     }
 }
 

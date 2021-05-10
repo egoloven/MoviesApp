@@ -7,12 +7,14 @@
 
 import Foundation
 
+///All needed information for views from API
 class ViewMovie {
     var id: Int
     var releaseDate: String
     var posterPath: String?
     var title: String
 
+    ///create ViewMovie from other that could be a base for it
     init(from movie: ViewMovieBase) {
         self.id = movie.id ?? -1
         self.title = movie.title ?? Constants.invalidTitle

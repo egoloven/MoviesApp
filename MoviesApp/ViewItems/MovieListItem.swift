@@ -27,7 +27,6 @@ struct MovieListItem: View {
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             RemoteImage(from: movie.posterPath == nil ? "" : preUrl + movie.posterPath!)
-//                .aspectRatio(contentMode: .fit)
                 .frame(height: CGFloat(height), alignment: .center)
             Text("\(movie.title)")
                 .frame(height: CGFloat(font))
